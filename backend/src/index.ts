@@ -18,7 +18,10 @@ import type { EquipmentSet, NewEquipmentSet } from './types';
 // Logger ativado para debug visual no terminal
 const server = fastify({ logger: true });
 
-server.register(cors, { origin: '*' });
+server.register(cors, {
+  origin: '*',
+  methods: ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE'],
+});
 
 const DATA_DIR = process.env.DATA_DIR ?? path.join(__dirname, '..', 'data');
 const DATA_FILE = path.join(DATA_DIR, 'equipment_sets.json');
