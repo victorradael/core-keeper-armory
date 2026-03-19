@@ -1,0 +1,39 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+dist-electron/
+release/
+build/
+
+# User data / Databases
+data/equipment_sets.json
+data/app_config.json
+data/*.json
+**/src/data/
+
+# Backup and scratch files
+*.bak
+*.test
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,20 @@
+{
+  "name": "build-keeper-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"docker compose up\" \"cd frontend && npm run dev\"",
+    "backend": "docker compose up -d",
+    "frontend": "cd frontend && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.8",
+    "concurrently": "^9.2.1"
+  }
+}
