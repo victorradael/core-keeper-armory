@@ -1,0 +1,15 @@
+services:
+  backend:
+    build: ./backend
+    container_name: build-keeper-backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./backend/src:/app/src
+    environment:
+      - NODE_ENV=development
+      - DATA_DIR=/app/data
+    command: npm run dev
+    tty: true
+    stdin_open: true
