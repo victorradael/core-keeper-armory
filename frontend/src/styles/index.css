@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00d1ff; /* Core Cyan */
+  --color-secondary: #ffcc00; /* Ore Gold */
+  --color-background: #0c0c14; /* Deep Cave */
+  --color-surface: #1a1a24;
+  --color-radael: #3b82f6;
+  --color-carol: #f472b6;
+  --font-pixel: "VT323", monospace;
+  --font-sans: "Inter", sans-serif;
+}
+
+body {
+  @apply bg-background text-[#e8e8f0] font-sans overflow-hidden;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  image-rendering: pixelated;
+  -webkit-app-region: drag;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, .font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.05em;
+}
+
+button, input, a, select, .custom-scroll {
+  -webkit-app-region: no-drag;
+}
+
+/* Efeito 8-bit Border */
+.pixel-border {
+  border: 4px solid #000;
+  box-shadow: 
+    inset -4px -4px 0px 0px rgba(0,0,0,0.1),
+    0px 4px 0px 0px rgba(0,0,0,0.2);
+  border-radius: 0 !important;
+}
+
+.pixel-card {
+  @apply bg-surface border-2 border-white/10;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.5);
+  border-radius: 0 !important;
+}
+
+/* Custom Scrollbar 8-bit style */
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: #0c0c14;
+  border-left: 2px solid rgba(255,255,255,0.05);
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #1a1a24;
+  border: 2px solid #00d1ff;
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.5);
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #00d1ff;
+  border-color: #fff;
+}
