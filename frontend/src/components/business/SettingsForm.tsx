@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '../ui/Card';
-import { TextField } from '../ui/TextField';
 import { Button } from '../ui/Button';
 import { useConfig } from '../../hooks/useSets';
-import { Save, Info, CheckCircle2, Monitor } from 'lucide-react';
+import { useQueryClient } from '@tanstack/react-query';
+import { setServerUrl, getServerUrl } from '../../services/api';
+import { Save, CheckCircle2, Monitor } from 'lucide-react';
 
 export function SettingsForm() {
   const { data: config, updateConfig, isLoading } = useConfig();
+  const queryClient = useQueryClient();
   const [appCode, setAppCode] = useState('');
+  const [serverUrl, setServerUrlState] = useState(getServerUrl);
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
@@ -17,8 +20,10 @@ export function SettingsForm() {
   }, [config]);
 
   const handleSave = () => {
+    setServerUrl(serverUrl);
     updateConfig.mutate({ app_code: appCode }, {
       onSuccess: () => {
+        queryClient.invalidateQueries();
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 3000);
       }
@@ -37,18 +42,29 @@ export function SettingsForm() {
 
         <div className="space-y-4">
           <div className="space-y-2">
+            <label className="font-pixel text-xs text-primary uppercase tracking-widest ml-1">SERVER URL</label>
+            <input
+              value={serverUrl}
+              onChange={(e) => setServerUrlState(e.target.value)}
+              className="w-full bg-black/40 border-2 border-white/10 px-4 py-3 text-sm font-pixel text-white focus:outline-none focus:border-primary transition-all duration-200 ease-out"
+              placeholder="http://localhost:3000"
+            />
+            <p className="text-[9px] font-pixel text-[#938F99] uppercase tracking-wider ml-1">Address of the Core Keeper Armory backend.</p>
+          </div>
+
+          <div className="space-y-2">
             <label className="font-pixel text-xs text-primary uppercase tracking-widest ml-1">APP CODE</label>
-            <input 
+            <input
               value={appCode}
               onChange={(e) => setAppCode(e.target.value.toUpperCase())}
-              className="w-full bg-black/40 border-2 border-white/10 px-4 py-3 text-sm font-pixel text-white focus:outline-none focus:border-primary transition-all"
+              className="w-full bg-black/40 border-2 border-white/10 px-4 py-3 text-sm font-pixel text-white focus:outline-none focus:border-primary transition-all duration-200 ease-out"
               placeholder="ENTER SYSTEM CODE..."
             />
             <p className="text-[9px] font-pixel text-[#938F99] uppercase tracking-wider ml-1">This code identifies your armory instance.</p>
           </div>
-          
-          <Button 
-            onClick={handleSave} 
+
+          <Button
+            onClick={handleSave}
             isLoading={updateConfig.isPending}
             className="w-full h-14 bg-primary text-black font-pixel text-xl tracking-widest hover:bg-secondary transition-colors"
           >

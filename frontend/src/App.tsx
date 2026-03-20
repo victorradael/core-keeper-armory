@@ -6,11 +6,45 @@ import { BulkEditTable } from './components/business/BulkEditTable';
 import { SettingsForm } from './components/business/SettingsForm';
 import { useSets } from './hooks/useSets';
 import { useQuery } from '@tanstack/react-query';
-import { api } from './services/api';
-import { 
-  Search, Loader2, Pickaxe, Trophy, Shield, 
-  User, Target, Clipboard, ScrollText, Settings 
+import { api, getServerUrl } from './services/api';
+import {
+  Search, Loader2, Pickaxe, Trophy, Shield,
+  User, Target, Clipboard, ScrollText, Settings
 } from 'lucide-react';
+
+function ConnectionError({ serverUrl, onGoToSettings }: { serverUrl: string; onGoToSettings: () => void }) {
+  const isDefault = serverUrl === 'http://localhost:3000';
+  return (
+    <div className="pixel-card p-12 flex flex-col items-center gap-6 border-red-500/20 bg-red-500/5 max-w-lg mx-auto">
+      <Shield className="w-12 h-12 text-red-500" />
+      <div className="text-center space-y-3">
+        <p className="text-2xl font-black text-white font-pixel uppercase">CONNECTION LOST</p>
+        <p className="text-[10px] font-pixel text-[#938F99] uppercase">
+          TRYING TO REACH: <span className="text-white">{serverUrl}</span>
+        </p>
+        {isDefault && (
+          <p className="text-[10px] font-pixel text-yellow-500/80 uppercase">
+            HINT: CONFIGURE SERVER URL IN SYSTEM SETTINGS
+          </p>
+        )}
+      </div>
+      <div className="flex gap-3">
+        <button
+          className="pixel-border bg-primary/10 border-primary/40 px-6 py-2 font-pixel text-xs hover:bg-primary/20 text-primary"
+          onClick={onGoToSettings}
+        >
+          SYSTEM CONFIG
+        </button>
+        <button
+          className="pixel-border bg-white/5 px-6 py-2 font-pixel text-xs hover:bg-white/10 text-white"
+          onClick={() => window.location.reload()}
+        >
+          RETRY
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -77,7 +111,7 @@ function App() {
   return (
     <MainLayout>
       {(currentTab, setTab) => (
-        <div className="animate-in fade-in duration-500 h-full">
+        <div key={currentTab} className="animate-in fade-in duration-300 ease-out h-full">
           {currentTab === 'checklist' && (
             <div className="space-y-8 pb-20">
               <header className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -108,19 +142,7 @@ function App() {
                   <p className="font-pixel text-xl text-[#938F99] animate-pulse uppercase text-center">DIGGING IN THE CAVES...</p>
                 </div>
               ) : isError ? (
-                <div className="pixel-card p-12 flex flex-col items-center gap-6 border-red-500/20 bg-red-500/5 max-w-lg mx-auto">
-                  <Shield className="w-12 h-12 text-red-500" />
-                  <div className="text-center space-y-2">
-                    <p className="text-2xl font-black text-white font-pixel uppercase">CONNECTION LOST</p>
-                    <p className="text-[10px] font-pixel text-[#938F99] uppercase">BACKEND CORE IS OFFLINE</p>
-                  </div>
-                  <button 
-                    className="pixel-border bg-white/5 px-8 py-2 font-pixel text-xs hover:bg-white/10 text-white" 
-                    onClick={() => window.location.reload()}
-                  >
-                    REBOOT SYSTEM
-                  </button>
-                </div>
+                <ConnectionError serverUrl={getServerUrl()} onGoToSettings={() => setTab('settings')} />
               ) : (sets || []).length === 0 ? (
                 <div className="pixel-card p-20 flex flex-col items-center gap-6 border-dashed border-white/10 text-center">
                   <Pickaxe className="w-16 h-16 text-[#4A4458]" />

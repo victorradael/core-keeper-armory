@@ -1,10 +1,18 @@
 import axios from 'axios';
 
-/**
- * Cliente Axios configurado para comunicar com o container do backend.
- * O container expõe a porta 3000.
- */
+const DEFAULT_URL = 'http://localhost:3000';
+
+export function getServerUrl(): string {
+  return localStorage.getItem('armory_server_url') ?? DEFAULT_URL;
+}
+
+export function setServerUrl(url: string) {
+  const normalized = url.replace(/\/$/, '');
+  localStorage.setItem('armory_server_url', normalized);
+  api.defaults.baseURL = normalized;
+}
+
 export const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: getServerUrl(),
   timeout: 5000,
 });
