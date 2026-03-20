@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/victorradael/core-keeper-armory/compare/v1.2.1...v1.2.2) (2026-03-20)
+
+
+### Bug Fixes
+
+* **ci:** set releaseType=release so electron-builder uploads to published releases ([7d01cf0](https://github.com/victorradael/core-keeper-armory/commit/7d01cf0328cea9b43b4be44ad5eea8cce13cf649))
+
 ## [1.2.1](https://github.com/victorradael/core-keeper-armory/compare/v1.2.0...v1.2.1) (2026-03-20)
 
 
