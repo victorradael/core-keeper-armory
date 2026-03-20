@@ -126,7 +126,7 @@ export function RegistrationForm({ catalog = {}, onSuccess }: RegistrationFormPr
               
               return (
                 <div key={key} className={cn(
-                  "pixel-card p-4 flex flex-col gap-4 transition-all",
+                  "pixel-card p-4 flex flex-col gap-4 transition-all duration-200 ease-out",
                   isSelected ? "border-primary/40 bg-primary/5" : "border-white/5 bg-black/20"
                 )}>
                   <div className="flex items-center gap-3">

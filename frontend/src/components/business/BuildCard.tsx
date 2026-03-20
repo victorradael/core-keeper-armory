@@ -80,7 +80,7 @@ export function BuildCard({ set, catalog }: BuildCardProps) {
         <div className="h-3 w-full bg-black/40 border-2 border-white/5 p-0.5">
           <div 
             className={cn(
-              "h-full transition-all duration-500",
+              "h-full transition-all duration-500 ease-out",
               set._is_complete ? "bg-secondary" : "bg-primary"
             )}
             style={{ width: `${progress}%` }}
@@ -95,8 +95,11 @@ export function BuildCard({ set, catalog }: BuildCardProps) {
           {isExpanded ? 'CLOSE GEAR' : 'SHOW GEAR'}
         </button>
 
-        {isExpanded && (
-          <div className="pt-2 space-y-2 animate-in fade-in slide-in-from-top-1 duration-200">
+        <div className={cn(
+          "overflow-hidden transition-all duration-300 ease-in-out",
+          isExpanded ? "max-h-[600px] opacity-100 pt-2" : "max-h-0 opacity-0"
+        )}>
+          <div className="space-y-2">
             {Object.entries(set.equipment)
               .filter(([_, data]) => data.has_in_set)
               .map(([key, data]) => {
@@ -125,7 +128,7 @@ export function BuildCard({ set, catalog }: BuildCardProps) {
                 );
               })}
           </div>
-        )}
+        </div>
       </div>
     </Card>
   );
