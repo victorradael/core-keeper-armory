@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/victorradael/core-keeper-armory/compare/v1.2.0...v1.2.1) (2026-03-20)
+
+
+### Bug Fixes
+
+* **ci:** trigger release to validate Windows build job ([3081226](https://github.com/victorradael/core-keeper-armory/commit/30812269383335b6ea05cba56145907d6950ed6d))
+
 # [1.2.0](https://github.com/victorradael/core-keeper-armory/compare/v1.1.0...v1.2.0) (2026-03-20)
 
 
