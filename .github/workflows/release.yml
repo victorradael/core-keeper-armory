@@ -106,7 +106,11 @@ jobs:
     if: needs.release.outputs.new_release_published == 'true'
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            platform_flag: --linux
+          - os: windows-latest
+            platform_flag: --win
     steps:
       - uses: actions/checkout@v4
         with:
@@ -122,12 +126,14 @@ jobs:
         run: npm ci
         working-directory: frontend
 
-      - name: Build Vite
+      - name: Build Vite + Electron main
         run: npx vite build
         working-directory: frontend
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
 
       - name: Package Electron
-        run: npx electron-builder --publish=always
+        run: npx electron-builder ${{ matrix.platform_flag }} --publish=always
         working-directory: frontend
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

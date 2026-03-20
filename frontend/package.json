@@ -44,10 +44,7 @@
       "dist-electron/**/*"
     ],
     "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ],
+      "target": ["AppImage"],
       "icon": "public/icon.png",
       "category": "Utility"
     },
