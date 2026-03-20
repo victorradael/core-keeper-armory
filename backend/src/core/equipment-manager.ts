@@ -116,11 +116,12 @@ export function bulkUpdateSets(
 	const setsById = Object.fromEntries(sets.map((s) => [s.id, s]));
 
 	for (const row of updates) {
-		const set = setsById[row.id];
+		const id = String(row["id"] ?? "");
+		const set = setsById[id];
 		if (!set) continue;
 
-		set.name = row.Nome || set.name;
-		set.type = row.Tipo || set.type;
+		if (typeof row["Nome"] === "string") set.name = row["Nome"];
+		if (row["Tipo"] === "R" || row["Tipo"] === "C") set.type = row["Tipo"];
 
 		for (const [key, value] of Object.entries(row)) {
 			if (["id", "Nome", "Tipo", "Completo"].includes(key)) continue;
