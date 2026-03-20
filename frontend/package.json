@@ -37,7 +37,8 @@
     "publish": {
       "provider": "github",
       "owner": "victorradael",
-      "repo": "core-keeper-armory"
+      "repo": "core-keeper-armory",
+      "releaseType": "release"
     },
     "files": [
       "dist/**/*",
