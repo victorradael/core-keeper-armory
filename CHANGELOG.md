@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/victorradael/core-keeper-armory/compare/v1.1.0...v1.2.0) (2026-03-20)
+
+
+### Features
+
+* **ci:** rebuild release pipeline based on phantom pattern ([f8f57cc](https://github.com/victorradael/core-keeper-armory/commit/f8f57cc62e78a79fa07f7c9f18641fff9fbc624a))
+
 # [1.1.0](https://github.com/victorradael/core-keeper-armory/compare/v1.0.0...v1.1.0) (2026-03-20)
 
 
