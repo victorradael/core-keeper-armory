@@ -28,6 +28,12 @@ const ICON_MAP: Record<string, LucideIcon> = {
 	mao_secundaria: ShieldAlert,
 };
 
+type TableRow = Record<string, unknown> & {
+	id: string;
+	Nome: string;
+	Tipo: string;
+};
+
 interface BulkEditTableProps {
 	sets: EquipmentSet[];
 	catalog: Record<string, string>;
@@ -35,12 +41,12 @@ interface BulkEditTableProps {
 
 export function BulkEditTable({ sets = [], catalog = {} }: BulkEditTableProps) {
 	const bulkUpdate = useBulkUpdate();
-	const [localData, setLocalData] = useState<Record<string, unknown>[]>([]);
+	const [localData, setLocalData] = useState<TableRow[]>([]);
 
 	useEffect(() => {
 		if (!sets || !catalog) return;
 
-		const flatData = sets.map((set) => {
+		const flatData: TableRow[] = sets.map((set) => {
 			const equipmentFields = Object.fromEntries(
 				Object.keys(catalog).map((key) => [
 					key,

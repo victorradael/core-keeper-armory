@@ -1,6 +1,16 @@
 import { Minus, Pickaxe, Square, X } from "lucide-react";
 import type React from "react";
 
+declare global {
+	interface Window {
+		electronAPI?: {
+			minimize(): void;
+			maximize(): void;
+			close(): void;
+		};
+	}
+}
+
 type AppRegionStyle = React.CSSProperties & { WebkitAppRegion: string };
 
 const dragStyle: AppRegionStyle = { WebkitAppRegion: "drag" };

@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "../contexts/ToastContext";
 import { api } from "../services/api";
-import type { AppConfig, EquipmentSet } from "../types";
+import type { AppConfig, EquipmentItem, EquipmentSet } from "../types";
 
 export function useSets() {
 	return useQuery<EquipmentSet[]>({
@@ -102,9 +102,9 @@ export function useUpdateItem() {
 				if (!old) return [];
 				return old.map((set) => {
 					if (set.id === setId) {
-						const updatedEquipment = {
+						const updatedEquipment: Record<string, EquipmentItem> = {
 							...set.equipment,
-							[key]: { ...set.equipment[key], acquired },
+							[key]: { ...set.equipment[key], acquired } as EquipmentItem,
 						};
 
 						const itemsInSet = Object.values(updatedEquipment).filter(
