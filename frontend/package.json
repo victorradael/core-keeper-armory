@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "dist-electron/main.js",
   "scripts": {
@@ -44,7 +44,9 @@
       "dist-electron/**/*"
     ],
     "linux": {
-      "target": ["AppImage"],
+      "target": [
+        "AppImage"
+      ],
       "icon": "public/icon.png",
       "category": "Utility"
     },

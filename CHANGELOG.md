@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/victorradael/core-keeper-armory/compare/v1.0.0...v1.1.0) (2026-03-20)
+
+
+### Features
+
+* **ci:** trigger build workflow to validate electron packaging ([76befec](https://github.com/victorradael/core-keeper-armory/commit/76befec6ea72240b7f87fa3f49123c54663c205f))
+
 # 1.0.0 (2026-03-20)
 
 
