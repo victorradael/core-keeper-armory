@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="frontend/public/icon.png" alt="Core Keeper Armory" width="120" />
+</p>
+
 # ⛏️ Core Keeper Armory
 
 > A desktop companion app for tracking your gear sets and build progression in [Core Keeper](https://store.steampowered.com/app/1621690/Core_Keeper/).
