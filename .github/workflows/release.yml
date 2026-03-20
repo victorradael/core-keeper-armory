@@ -74,9 +74,6 @@ jobs:
     name: Semantic Release
     runs-on: ubuntu-latest
     needs: test-backend
-    outputs:
-      new_release_published: ${{ steps.release.outputs.new_release_published }}
-      new_release_version: ${{ steps.release.outputs.new_release_version }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -87,15 +84,19 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
 
-      - name: Install deps
+      - name: Install root deps
         run: npm ci
 
+      - name: Install frontend deps
+        run: npm ci
+        working-directory: frontend
+
       - name: Run semantic-release
-        id: release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

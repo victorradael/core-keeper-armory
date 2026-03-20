@@ -1,4 +1,4 @@
-name: Build Electron
+name: Build Windows
 
 on:
   push:
@@ -9,16 +9,9 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    name: Build (${{ matrix.os }})
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            platform_flag: --linux
-          - os: windows-latest
-            platform_flag: --win
+  build-windows:
+    name: Build Windows Installer
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -35,11 +28,9 @@ jobs:
       - name: Build Vite + Electron main
         run: npx vite build
         working-directory: frontend
-        env:
-          ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
 
-      - name: Package Electron
-        run: npx electron-builder ${{ matrix.platform_flag }} --publish=always
+      - name: Package and publish Windows installer
+        run: npx electron-builder --win --publish=always
         working-directory: frontend
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
