@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
+    "build:vite": "vite build",
+    "build:electron": "electron-builder",
     "preview": "vite preview",
     "lint": "biome check src electron",
     "lint:fix": "biome check --write src electron"
@@ -25,6 +27,35 @@
     "react-hook-form": "^7.71.2",
     "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
+  },
+  "build": {
+    "appId": "com.victorradael.core-keeper-armory",
+    "productName": "Core Keeper Armory",
+    "directories": {
+      "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "victorradael",
+      "repo": "core-keeper-armory"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "public/icon.png",
+      "category": "Utility"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",
