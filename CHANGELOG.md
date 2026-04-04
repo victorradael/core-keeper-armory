@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/victorradael/core-keeper-armory/compare/v1.2.2...v1.3.0) (2026-04-04)
+
+
+### Features
+
+* **settings:** add JSON data export button ([fd78fdf](https://github.com/victorradael/core-keeper-armory/commit/fd78fdfc30af7c07c63b610a92cae3d9218fd2c6))
+
 ## [1.2.2](https://github.com/victorradael/core-keeper-armory/compare/v1.2.1...v1.2.2) (2026-03-20)
 
 
