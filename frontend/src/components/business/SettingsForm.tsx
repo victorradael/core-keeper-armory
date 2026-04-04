@@ -1,8 +1,8 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { CheckCircle2, Monitor, Save } from "lucide-react";
+import { CheckCircle2, Download, Monitor, Save } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useConfig } from "../../hooks/useSets";
-import { getServerUrl, setServerUrl } from "../../services/api";
+import { api, getServerUrl, setServerUrl } from "../../services/api";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 
@@ -18,6 +18,18 @@ export function SettingsForm() {
 			setAppCode(config.app_code);
 		}
 	}, [config]);
+
+	const handleExport = async () => {
+		const { data: sets } = await api.get("/sets");
+		const json = JSON.stringify(sets, null, 2);
+		const blob = new Blob([json], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = "armory_export.json";
+		a.click();
+		URL.revokeObjectURL(url);
+	};
 
 	const handleSave = () => {
 		setServerUrl(serverUrl);
@@ -107,6 +119,24 @@ export function SettingsForm() {
 						</div>
 					)}
 				</div>
+			</div>
+
+			<div className="space-y-4 pt-4">
+				<div className="flex items-center gap-4">
+					<h3 className="text-xl font-black text-[#938F99] uppercase tracking-[0.2em] font-pixel">
+						DATA MANAGEMENT
+					</h3>
+					<div className="h-px flex-1 bg-white/5" />
+				</div>
+
+				<Button
+					variant="outlined"
+					onClick={handleExport}
+					className="w-full h-14 font-pixel text-xl tracking-widest"
+				>
+					<Download className="w-5 h-5 mr-3" />
+					EXPORT DATA
+				</Button>
 			</div>
 
 			<div className="space-y-4 pt-4">
