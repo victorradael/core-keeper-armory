@@ -2,6 +2,8 @@ import path from "node:path";
 import { app, BrowserWindow, ipcMain } from "electron";
 import { autoUpdater } from "electron-updater";
 
+app.setName("Core Keeper Armory");
+
 let mainWindow: BrowserWindow | null = null;
 
 function setupAutoUpdater() {
@@ -35,10 +37,14 @@ function setupAutoUpdater() {
 }
 
 function createWindow() {
+	const iconsDir = process.env.VITE_DEV_SERVER_URL
+		? path.join(__dirname, "../public")
+		: path.join(__dirname, "../dist");
+
 	const icon =
 		process.platform === "win32"
-			? path.join(__dirname, "../public/icon.ico")
-			: path.join(__dirname, "../public/icon.png");
+			? path.join(iconsDir, "icon.ico")
+			: path.join(iconsDir, "icon.png");
 
 	mainWindow = new BrowserWindow({
 		width: 1200,
