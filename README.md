@@ -54,10 +54,20 @@ chmod +x CoreKeeperArmory-*.AppImage
 
 No installation required — the AppImage is self-contained and runs directly.
 
+> If you use **AppImageLauncher**, it will automatically prompt to integrate the app into your system when you open it for the first time.
+
 #### Uninstalling
+
+**Without AppImageLauncher** — delete the file and app data:
 
 ```bash
 rm CoreKeeperArmory-*.AppImage
+rm -rf ~/.config/Core\ Keeper\ Armory
+```
+
+**With AppImageLauncher** — right-click the app in your application launcher and select **Remove AppImage from system**. Then remove the app data:
+
+```bash
 rm -rf ~/.config/Core\ Keeper\ Armory
 ```
 
