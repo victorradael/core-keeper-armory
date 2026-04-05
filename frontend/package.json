@@ -50,11 +50,13 @@
         "AppImage"
       ],
       "icon": "public/icon.png",
-      "category": "Utility"
+      "category": "Utility",
+      "artifactName": "Core.Keeper.Armory-${version}.${ext}"
     },
     "win": {
       "target": "nsis",
-      "icon": "public/icon.ico"
+      "icon": "public/icon.ico",
+      "artifactName": "Core-Keeper-Armory-Setup-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
