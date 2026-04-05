@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/victorradael/core-keeper-armory/compare/v1.4.2...v1.4.3) (2026-04-05)
+
+
+### Bug Fixes
+
+* **build:** set explicit artifactName for linux and windows to match release assets ([d8961ee](https://github.com/victorradael/core-keeper-armory/commit/d8961eef1b3e20e8ed6aa93811e99fcf9400e478))
+
 ## [1.4.2](https://github.com/victorradael/core-keeper-armory/compare/v1.4.1...v1.4.2) (2026-04-05)
 
 
