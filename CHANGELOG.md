@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/victorradael/core-keeper-armory/compare/v1.4.1...v1.4.2) (2026-04-05)
+
+
+### Bug Fixes
+
+* **window:** set correct app name and icon path for taskbar on Linux ([7cceef8](https://github.com/victorradael/core-keeper-armory/commit/7cceef8a2aa27083f66b3233db77e241540a88ec))
+
 ## [1.4.1](https://github.com/victorradael/core-keeper-armory/compare/v1.4.0...v1.4.1) (2026-04-05)
 
 
