@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/victorradael/core-keeper-armory/compare/v1.4.3...v1.5.0) (2026-04-05)
+
+
+### Features
+
+* **ui:** add animated splash screen on app startup ([9f13bd3](https://github.com/victorradael/core-keeper-armory/commit/9f13bd39e1aa9b49bf0f15fa39828c4fe6dc6f44))
+
 ## [1.4.3](https://github.com/victorradael/core-keeper-armory/compare/v1.4.2...v1.4.3) (2026-04-05)
 
 
