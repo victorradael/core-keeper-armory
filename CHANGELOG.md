@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/victorradael/core-keeper-armory/compare/v1.3.0...v1.4.0) (2026-04-05)
+
+
+### Features
+
+* **ui:** display app version in title bar and settings ([68e4159](https://github.com/victorradael/core-keeper-armory/commit/68e415919472895f2bc1d58126e34e68e45ddef6))
+* **updater:** add auto-update support via electron-updater ([0e58617](https://github.com/victorradael/core-keeper-armory/commit/0e586170944321441f86ed62f3c0fbc33e329cd5))
+
 # [1.3.0](https://github.com/victorradael/core-keeper-armory/compare/v1.2.2...v1.3.0) (2026-04-04)
 
 
