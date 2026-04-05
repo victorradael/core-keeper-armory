@@ -35,16 +35,22 @@ function setupAutoUpdater() {
 }
 
 function createWindow() {
+	const icon =
+		process.platform === "win32"
+			? path.join(__dirname, "../public/icon.ico")
+			: path.join(__dirname, "../public/icon.png");
+
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 800,
 		frame: false, // Remove a barra de título nativa
+		icon,
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
 			nodeIntegration: true,
 			contextIsolation: true,
 		},
-		title: "Build Keeper Electron",
+		title: "Core Keeper Armory",
 		backgroundColor: "#1C1B1F",
 	});
 
