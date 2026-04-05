@@ -41,6 +41,40 @@ The backend is a lightweight Fastify REST API running in Docker. Data is persist
 
 ---
 
+## Installation
+
+Download the latest release from the [Releases page](https://github.com/victorradael/core-keeper-armory/releases).
+
+### Linux (AppImage)
+
+```bash
+chmod +x CoreKeeperArmory-*.AppImage
+./CoreKeeperArmory-*.AppImage
+```
+
+No installation required — the AppImage is self-contained and runs directly.
+
+#### Uninstalling
+
+```bash
+rm CoreKeeperArmory-*.AppImage
+rm -rf ~/.config/Core\ Keeper\ Armory
+```
+
+### Windows (NSIS Installer)
+
+Run the `.exe` installer and follow the prompts.
+
+#### Uninstalling
+
+Open **Settings → Apps**, find **Core Keeper Armory**, and click **Uninstall**. To also remove saved data:
+
+```
+rmdir /s "%APPDATA%\Core Keeper Armory"
+```
+
+---
+
 ## Getting Started
 
 ### Prerequisites
