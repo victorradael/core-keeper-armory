@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/victorradael/core-keeper-armory/compare/v1.4.0...v1.4.1) (2026-04-05)
+
+
+### Bug Fixes
+
+* **window:** set app icon on taskbar and fix window title ([8b0bc85](https://github.com/victorradael/core-keeper-armory/commit/8b0bc85b93c9f33e897503bb930013702d6349bc))
+
 # [1.4.0](https://github.com/victorradael/core-keeper-armory/compare/v1.3.0...v1.4.0) (2026-04-05)
 
 
