@@ -1,5 +1,6 @@
 import type React from "react";
 import { useState } from "react";
+import { UpdateBanner } from "../ui/UpdateBanner";
 import { TabBar, type TabId } from "./TabBar";
 import { TitleBar } from "./TitleBar";
 
@@ -16,6 +17,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 	return (
 		<div className="flex flex-col h-screen w-full bg-[#0c0c14] text-[#E6E1E5] overflow-hidden border-2 border-white/5">
 			<TitleBar />
+			<UpdateBanner />
 			<TabBar activeTab={activeTab} onTabChange={setActiveTab} />
 
 			<main className="flex-1 overflow-y-auto overflow-x-hidden p-6 custom-scroll">
