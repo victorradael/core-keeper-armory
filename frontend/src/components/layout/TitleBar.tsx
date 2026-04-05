@@ -1,16 +1,6 @@
 import { Minus, Pickaxe, Square, X } from "lucide-react";
 import type React from "react";
 
-declare global {
-	interface Window {
-		electronAPI?: {
-			minimize(): void;
-			maximize(): void;
-			close(): void;
-		};
-	}
-}
-
 type AppRegionStyle = React.CSSProperties & { WebkitAppRegion: string };
 
 const dragStyle: AppRegionStyle = { WebkitAppRegion: "drag" };
@@ -30,6 +20,9 @@ export function TitleBar() {
 				<Pickaxe className="w-5 h-5 text-secondary" />
 				<span className="text-sm font-black text-white tracking-[0.2em] font-pixel">
 					CORE KEEPER • ARMORY
+				</span>
+				<span className="text-xs font-pixel text-white/60 tracking-widest border border-white/10 px-2 py-0.5">
+					v{__APP_VERSION__}
 				</span>
 			</div>
 

@@ -151,7 +151,7 @@ export function SettingsForm() {
 					<Monitor className="w-5 h-5 text-[#938F99] mt-0.5" />
 					<div className="space-y-1">
 						<p className="text-sm font-bold text-white font-pixel uppercase tracking-widest">
-							Build Keeper Electron v1.0.0
+							Core Keeper Armory v{__APP_VERSION__}
 						</p>
 						<p className="text-[10px] text-[#938F99] font-pixel uppercase">
 							CONNECTED TO CORE BACKEND (DOCKER)
