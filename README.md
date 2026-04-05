@@ -67,8 +67,8 @@ rm -rf ~/.config/"Core Keeper Armory"
 **Manual removal** — run the following to remove everything in one go (AppImage file, desktop shortcut, and app data):
 
 ```bash
-rm -f ~/Applications/CoreKeeperArmory-*.AppImage && \
-rm -f ~/.local/share/applications/appimagekit_*core*keeper*armory*.desktop && \
+find ~/Applications -name "Core.Keeper.Armory-*.AppImage" -delete 2>/dev/null
+find ~/.local/share/applications -name "appimagekit_*armory*" -delete 2>/dev/null
 rm -rf ~/.config/"Core Keeper Armory"
 ```
 
