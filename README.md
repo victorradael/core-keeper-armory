@@ -58,18 +58,21 @@ No installation required — the AppImage is self-contained and runs directly.
 
 #### Uninstalling
 
-**Without AppImageLauncher** — delete the file and app data:
+**With AppImageLauncher (recommended)** — right-click the app icon in your application launcher and select **Remove AppImage from system**. This removes the file, the menu shortcut, and the launcher registration automatically. Then remove the app data:
 
 ```bash
-rm CoreKeeperArmory-*.AppImage
-rm -rf ~/.config/Core\ Keeper\ Armory
+rm -rf ~/.config/"Core Keeper Armory"
 ```
 
-**With AppImageLauncher** — right-click the app in your application launcher and select **Remove AppImage from system**. Then remove the app data:
+**Manual removal** — run the following to remove everything in one go (AppImage file, desktop shortcut, and app data):
 
 ```bash
-rm -rf ~/.config/Core\ Keeper\ Armory
+rm -f ~/Applications/CoreKeeperArmory-*.AppImage && \
+rm -f ~/.local/share/applications/appimagekit_*core*keeper*armory*.desktop && \
+rm -rf ~/.config/"Core Keeper Armory"
 ```
+
+> If you stored the AppImage in a different folder, replace `~/Applications/` with the correct path.
 
 ### Windows (NSIS Installer)
 
